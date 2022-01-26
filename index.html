@@ -1,85 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event-Driven 4-114</title>
-    
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event-Driven 4-114</title>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/6.png"></div>
-    </div>
-    <div class="section white">
-        <div class="row container center-align">
 
-          <h2 class="header">Parallax</h2>
-            <div class="card col s3 ">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="img/flutter.png" style="width:100px; height:100px;">
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Flutter<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-            <div class="card col s3">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="img/node-js.png" style="width:100px; height:100px;">
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Node JS<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-            <div class="card col s3">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="img/firebase.png" style="width:100px; height:100px;">
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Firebase<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/12.png"></div>
-    </div>
-    <div class="section white">
-        <div class="row container center-align">
+<body class="container">
+  <h1 onclick="clickMe()" name="hname" id="hname1" class="blue">Event Driven
+  </h1>
+  <h2 onclick="clickMe()" name="hname" id="hname2" class="blue">Event Driven 2</h2>
+  <h1 onclick="clickMe()" name="kjsdf" id="hname1" class="blue">Event Driven
+  </h1>
 
-          <h2 class="header">Parallax</h2>
-        </div>
-    </div> 
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/codecademy.png"></div>
-    </div>
+  <button id="btn1" class="btn green">Increase Counter</button>
+  <h5 onclick="clickMe()">Click</h5>
   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.parallax');
-        var instances = M.Parallax.init(elems);
-    });
+    let dcounter = 0
+    function clickMe() {
+      dcounter = dcounter + 1
+      console.log(dcounter)
+    }
+
+    let btn1 = document.getElementById('btn1');
+    btn1.addEventListener("click", function () {
+      dcounter = dcounter + 1
+      console.log(dcounter)
+
+    })
+
+
+
+
+    let variable = 4;
+    if (variable === '4')
+      console.log("String 4")
+    else
+      console.log("Numeral 4")
+    let arr = ['one', 'two', 3, 4, 'five'];
+    // console.log(arr[1]);
+    for (const item of arr) {
+      console.log(item);
+    }
+
+    let hname = document.getElementsByTagName('H1');
+    console.log(hname)
+    // for (const item of hname) {
+    //   console.log(item);
+
+    // }
+
+    let hname2 = document.getElementById('hname2')
+    console.log(hname2)
   </script>
 </body>
+
 </html>
