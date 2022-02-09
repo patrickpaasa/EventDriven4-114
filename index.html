@@ -6,62 +6,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event-Driven 4-114</title>
-
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+  <script src="js/objects.js"></script>
 </head>
 
-<body class="container">
-  <h1 onclick="clickMe()" name="hname" id="hname1" class="blue">Event Driven
-  </h1>
-  <h2 onclick="clickMe()" name="hname" id="hname2" class="blue">Event Driven 2</h2>
-  <h1 onclick="clickMe()" name="kjsdf" id="hname1" class="blue">Event Driven
-  </h1>
+<body class="container pt-5">
+  <div class="d-flex justify-content-center">
+    <img id="imgprofile" src="" alt="profileimg" class="rounded-circle border border-primary">
+  </div>
+  <div class="text-center mt-3">
+    <h4 id="nameprofile">
+      dummy name
+    </h4>
+  </div>
+  <div class="text-center">
+    <h5 id="emailprofile">dummyemail@gmail.com</h5>
+  </div>
+  <br/>
+  <div class="text-center">
+    <button class="btn btn-primary" onclick="loadProfile()">Load Profile</button>
+  </div>
+  <div id="items" class="d-flex flex-wrap ">
 
-  <button id="btn1" class="btn green">Increase Counter</button>
-  <h5 onclick="clickMe()">Click</h5>
-  <script>
-    let dcounter = 0
-    function clickMe() {
-      dcounter = dcounter + 1
-      console.log(dcounter)
-    }
-
-    let btn1 = document.getElementById('btn1');
-    btn1.addEventListener("click", function () {
-      dcounter = dcounter + 1
-      console.log(dcounter)
-
-    })
-
-
-
-
-    let variable = 4;
-    if (variable === '4')
-      console.log("String 4")
-    else
-      console.log("Numeral 4")
-    let arr = ['one', 'two', 3, 4, 'five'];
-    // console.log(arr[1]);
-    for (const item of arr) {
-      console.log(item);
-    }
-
-    let hname = document.getElementsByTagName('H1');
-    console.log(hname)
-    // for (const item of hname) {
-    //   console.log(item);
-
-    // }
-
-    let hname2 = document.getElementById('hname2')
-    console.log(hname2)
-  </script>
+  </div>
 </body>
+<script>
+  function loadProfile(){
+    let imgprofile = document.getElementById("imgprofile")
+    imgprofile.src  = profile.picture
+    let nameprofile = document.getElementById("nameprofile")
+    nameprofile.innerHTML  = `<strong>${profile.getName()}</strong>`
+    let emailprofile = document.getElementById("emailprofile")
+    emailprofile.innerText  = profile.email
 
+    
+    let items = document.getElementById("items")
+    for (const meal of meals) {
+      items.innerHTML += 
+        `<div class="card m-3" style="width: 18rem;">
+          <img class="card-img-top" src="${meal.image}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${meal.name}</h5>
+            <p class="card-text">₱ ${meal.price}</p>            
+          </div>
+        </div>`
+    }
+  }
+  
+ 
+</script>
 </html>
