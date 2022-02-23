@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"
+        integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+</head>
+
+
+<body class="container pt-5">
+    <button class="btn btn-sm btn-secondary" onclick="fetchdata()">Fetch Drinks</button>
+    <h3>Non Alcoholic Drinks</h3>
+    <div id="items" class="d-flex flex-wrap ">
+    </div>
+
+</body>
+<script>
+    async function fetchdata() {
+        const api_url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
+        let data = await fetch(api_url)
+            .then((response) => {
+                const drinks_json = response.json();
+                return drinks_json
+                    .then((data) => {
+
+                        return data;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        return null;
+                    })
+            })
+            .catch((error) => {
+                console.log(error);
+                return null;
+            });
+        let items = document.getElementById('items');
+        for (const drink of data.drinks) {
+            items.innerHTML +=
+                `<div class="card m-3" style="width: 18rem;">
+                <img class="card-img-top" src="${drink.strDrinkThumb}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${drink.strDrink}</h5>
+                    <p class="card-text">₱ ${drink.idDrink}</p>            
+                </div>
+                </div>`
+        }
+    }
+
+
+</script>
+
+</html>
